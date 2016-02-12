@@ -1,0 +1,26 @@
+{
+  "name": "endlessraider",
+  "version": "3.0.0",
+  "homepage": "https://github.com/Syeg/endlessraider",
+  "authors": [
+    "Mihajlo Stevanovic"
+  ],
+  "description": "the endless raider v3",
+  "main": "app/index.html",
+  "keywords": [
+    "endless",
+    "raider"
+  ],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.2.0",
+    "bootstrap": "~3.3.6"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "endless-raider",
+  "version": "3.0.0",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-copy": "^0.1.0",
+    "node-sass": "^3.4.2"
+  }
+}
