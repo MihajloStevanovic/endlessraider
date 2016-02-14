@@ -1,4 +1,143 @@
 /* 
  Endless Raider V3 global styles
  ============================================*/
- 
+	body, ul, li, a, p, h1, h2, h3 {
+		margin: 0;
+		padding: 0;
+		font-family: 'Arial', Sans-serif;
+		color: #333;
+		list-style: none;
+		text-decoration: none;
+		outline: none;
+	}
+	.nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 20%;
+		height: 100%;
+		background: #7A2721;
+		padding: 20px 0 0 0;
+		z-index: 2;
+	}
+	.nav li {
+		font-size: 14px;
+		line-height: 3;
+    	letter-spacing: 1px;
+	}
+	.nav a {
+		display: block;
+		color: #fff;
+		padding: 0 20px;
+		transition: all .2s ease-in-out;
+	}
+	.nav a.active {
+		background: #6C1D18;
+	}
+	.nav a:hover {
+		background: #8B3631;
+	}
+	.ss-menu {
+		display: none;
+		background: #8B3631;
+		padding: 0 0 0 20px;
+	}
+	.ss-menu a {
+		font-size: 13px;
+	}
+	.ss-menu a.active {
+		font-weight: bold;
+		background: none;
+	}
+
+
+	.main {
+		position: fixed;
+		top: 0;
+		left: 20%;
+		width: 80%;
+		height: 100%;
+	}
+	.header {
+		display: table;
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		font-size: 16px;
+		color: #7A2721;
+		box-shadow: 0 1px 1px 1px #D6D6D6;
+	}
+	.header .breadcrum {
+		float: left;
+		padding: 0 0 0 30px;
+	}
+	.header .breadcrum li,
+	.header .breadcrum a {
+		color: #7A2721;
+		font-weight: bold;
+		display: inline-block;
+		margin: 0 10px 0 0;
+	}
+	.header .header-option {
+		float: right;
+	}
+	.header a {
+		color: #7A2721;
+		margin: 0 20px;
+	}
+
+	.content {
+		margin: 30px;
+		background: #E8E8E8;
+		padding: 15px;
+	}
+
+	.label {
+		display: block;
+		font-size: 16px;
+		margin: 10px 0;
+		font-weight: bold;
+	}
+	.input {
+		width: 250px;
+		height: 50px;
+		line-height: 50px;
+		padding: 0 0 0 15px;
+		margin: 0 0 30px 0;
+		background: #fff;
+		border: 0 none;
+		font-size: 15px;
+		color: #7A2721;
+		font-weight: bold;
+		letter-spacing: 1px;
+		outline: none;
+	}
+	.input-small {
+		width: 180px;
+	}
+	.textarea {
+		display: block;
+		width: 600px;
+		height: 130px;
+		padding: 10px;
+		font-family: 'Arial', Sans-serif;
+		font-size: 12px;
+		border: 0 none;
+	}
+	.buttons {
+		display: table;
+		margin: 30px 0 0 0;
+	}
+	.buttons a {
+		float: left;
+		margin: 0 30px 0 0 ;
+		padding: 15px 40px;
+		color: #fff;
+		font-size: 13px;
+		font-weight: bold;
+		background: #7A2721;
+		transition: all .2s ease-in-out;
+	}
+	.buttons a:hover {
+		background: #8B3631;
+	}

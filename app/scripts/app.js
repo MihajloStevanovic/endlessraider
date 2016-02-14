@@ -6,7 +6,11 @@ var endlessRaider = function(){
 		 * Manage navigation panel
 		 */
 		navigation: function(){
-			console.log('ready');
+			$('.nav a').on('click',function(){
+				$('.nav a').removeClass('active');
+				$(this).toggleClass('active');
+				$(this).next().slideToggle();
+			});
 		},
 
 		/*
@@ -23,4 +27,5 @@ var endlessRaider = function(){
 	})
 
 }
+endlessRaider();
 

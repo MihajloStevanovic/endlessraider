@@ -8,7 +8,63 @@
 </head>
 <body>
 
-	<!-- App here -->
+	<nav class="nav">
+		<ul>
+			<li><a href="#" class="active">Home</a></li>
+			<li><a href="#">Events</a></li>
+			<li><a href="#">Profile</a></li>
+			<li>
+				<a href="#">Administration</a>
+				<ul class="ss-menu">
+					<li><a href="#">Events</a></li>
+					<li><a href="#">Users</a></li>
+					<li><a href="#">Game</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<main class="main">
+		<header class="header">
+			<ul class="breadcrum">
+				<li>Endless raider</li>
+				<li>Event</li>
+				<li>Edit</li>
+			</ul>
+			<div class="header-option">
+				<a href="#">Sieg</a>
+				<a href="#">Log out</a>
+			</div>
+		</header>
+		<section class="content">
+			<header class='content-header'>
+				<h2>Event edit</h2>
+			</header>
+			<form>
+				<label class="label">Type</label>
+				<select class="input">
+					<option>Game raid</option>
+					<option>IRL</option>
+					<option>Endless</option>
+				</select>
+				<label class="label">Game</label>
+				<select class="input">
+					<option>BDO</option>
+					<option>Minecraft</option>
+					<option>Aion</option>
+					<option>Diablo 	 </option>
+				</select>
+				<label class="label">Select a date</label>
+				<input type="text" class="input input-small" value="13/03/2016">
+				<label class="label">Select Hour</label>
+				<input type="text" class="input input-small" value="21H00">
+				<textarea class="textarea"></textarea>
+				<div class="buttons">
+					<a href="#">Cancel</a>
+					<a href="#">Submit</a>
+				</div>
+			</form>
+		</section>
+	</main>
 
 	<script src="scripts/libs/jquery.min.js"></script>
 	<script src="scripts/libs/bootstrap.min.js"></script>
