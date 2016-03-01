@@ -32,22 +32,14 @@ var endlessRaider = {
 			endlessRaider.raiderRouter(this);
 		});
 	},
-
-	/* Manage de navigation animation */
-	navigation: function() {
-		$('.nav a').on('click',function(e){
-			e.preventDefault();
-			$('.sub-menu').slideUp();
-			$(this).next().slideDown();
-			$('.nav a').removeClass('active');
-			$(this).addClass('active');
-		});
-	},
 	/* Manage the current route functions
 	 * @params: route
 	 */
 	raiderRouter: function(link){
 		switch(endlessRaider.config.route){
+			case 'home':
+				this.getCalendarDatas();
+			break;
 			case 'profile':
 				endlessRaider.profileRender();
 			break;
@@ -74,6 +66,29 @@ var endlessRaider = {
 			break;
 		}
 	},
+	raiderCalender: function(){
+		$('.content').append('<div class="raiderCalendar"></div>');
+		$('.raiderCalendar').fullCalendar({
+		    header: {
+		    	left: '',
+				center: 'title'
+		    },
+		    events: endlessRaider.config.calendar
+		})
+	},
+	getCalendarDatas: function(){
+		var calendarDatas = $.getJSON( "datas/calendar.json", function(data) {
+		})
+		.done(function(data) {
+			endlessRaider.config.calendar = data;
+		})
+		.fail(function() {
+			console.log( "calendar error" );
+		})
+		calendarDatas.complete(function() {
+			endlessRaider.raiderCalender();
+		});
+	},
 	/* Get current player informations */
 	getPLayerInfos: function(){
 		var playerInfos = $.getJSON( "datas/player.json", function(data) {
@@ -94,6 +109,7 @@ var endlessRaider = {
 		})
 		.done(function(data) {
 			endlessRaider.config.events = data;
+			console.log(endlessRaider.config.events);
 		})
 		.fail(function() {
 			console.log( "Events error" );
@@ -230,6 +246,7 @@ var endlessRaider = {
 	init: function(){
 		this.getPLayerInfos();
 		this.eventsListener();
+		this.raiderRouter();
 	}
 }
 
