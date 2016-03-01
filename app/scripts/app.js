@@ -1,6 +1,7 @@
 /* Endless raider application
  * @version: 3.0.0
  * @author : Sieg
+ * @url : http://www.endlessfr.com
  */
 var endlessRaider = {
 
@@ -14,23 +15,22 @@ var endlessRaider = {
 	},
 
 	eventsListener: function(){
-		$('.nav a').on('click',function(){
-			endlessRaider.navigation();
+		$('.menu-category').on('click',function(){
+			$('.sub-menu').slideUp();
+			$(this).next().slideDown();
+			$('.nav a').removeClass('active');
+			$(this).addClass('active');
 		});
-		
-
-		var routeHandler = document.getElementsByClassName('route-link');
-		routeHandler.addEventListener('click', function(){
-			route = routeHandler.getAttribute('data-route');
+		$('body').on('click','.route-link',function(){
+			route = this.getAttribute('data-route');
 			if(route !== endlessRaider.config.route){
 				endlessRaider.removeContent();
-				endlessRaider.raiderRouter()
 				endlessRaider.config.route = route;
 			}else{
 				return false;
 			}
-		},true);
-		
+			endlessRaider.raiderRouter(this);
+		});
 	},
 
 	/* Manage de navigation animation */
@@ -46,7 +46,7 @@ var endlessRaider = {
 	/* Manage the current route functions
 	 * @params: route
 	 */
-	raiderRouter: function(){
+	raiderRouter: function(link){
 		switch(endlessRaider.config.route){
 			case 'profile':
 				endlessRaider.profileRender();
@@ -60,8 +60,17 @@ var endlessRaider = {
 			case 'players':
 				this.getPlayersList();
 			break;
-			case 'edit-player':
-				this.editPlayer();
+			case 'player-edit':
+				var playerId = link.getAttribute('data-player-id');
+				this.playerEdit(playerId);
+			break;
+			case 'game-edit':
+				var gameId = link.getAttribute('data-game-id');
+				this.gameEdit(gameId);
+			break;
+			case 'event-edit':
+				var eventId = link.getAttribute('data-event-id');
+				this.eventEdit(eventId);
 			break;
 		}
 	},
@@ -135,30 +144,87 @@ var endlessRaider = {
 	/* Append the events list template */
 	eventsRender: function(events){
 		for(event in events){
-			$('.content').append('<div>'+events[event].name+'</div>');
+			$('.content').append('<div>'+events[event].name+
+				'<button class="route-link" data-route="event-edit" data-event-id="'+events[event].id+'">Edit</button>'+
+			'</div>');
 		}
 	},
 	/* Append the games list template */
 	gamesRender: function(games){
 		for(game in games){
-			$('.content').append('<div>'+games[game].name+'</div>');
+			$('.content').append('<div>'+games[game].name+
+				'<button class="route-link" data-route="game-edit" data-game-id="'+games[game].id+'">Edit</button>'+
+			'</div>');
 		}
 	},
 	/* Append the players list template */
 	playersRender: function(players){
 		for(player in players){
-			$('.content').append('<div>'+players[player].name+'<button class="edit-player">Edit</buttons</div>');
+			$('.content').append('<div>'+players[player].name+
+				'<button class="route-link" data-route="player-edit" data-player-id="'+players[player].id+'">Edit</button>'+
+			'</div>');
 		}
 	},
-	editPlayer: function(){
-		$('.content').append('<div>'+
-			'<div>name: '+endlessRaider.config.player.name+'</div>'+
-			'<div>rules: <select>'+
-			'<option>Read</option>'+
-			'<option>Write</option>'+
-			'<option>All</option>'+
-			'</section></div>'+
-		'</div>');
+	playerEdit: function(playerId){
+		for(player in endlessRaider.config.players){
+			var currentEditPlayer = endlessRaider.config.players[player];
+			if(currentEditPlayer.id == playerId){
+				$('.content').append('<form>'+
+					'<div>name: '+currentEditPlayer.name+'</div>'+
+					'<div>rules:</div>'+
+					'<select>'+
+						'<option>Read</option>'+
+						'<option>Write</option>'+
+						'<option>All</option>'+
+					'</select>'+
+					'<input type="submit" value="Apply">'+
+				'</form>');
+			}
+		}
+	},
+	gameEdit: function(gameId){
+		for(game in endlessRaider.config.games){
+			var currentEditGame = endlessRaider.config.games[game];
+			if(currentEditGame.id == gameId){
+				$('.content').append('<form>'+
+					'<div>'+
+						'<label>name:</label>'+
+						'<input type="text" value="'+currentEditGame.name+'" />'+
+					'</div>'+
+					'<input type="submit" value="Apply">'+
+				'</form>');
+			}
+		}
+	},
+	eventEdit: function(eventId){
+		for(event in endlessRaider.config.events){
+			var currentEditEvent = endlessRaider.config.events[event];
+			if(currentEditEvent.id == eventId){
+				$('.content').append('<form>'+
+					'<div>'+
+						'<label>name:</label>'+
+						'<input type="text" value="'+currentEditEvent.name+'" />'+
+					'</div>'+
+					'<div>'+
+						'<label>type:</label>'+
+						'<input type="text" value="'+currentEditEvent.type+'" />'+
+					'</div>'+
+					'<div>'+
+						'<label>game:</label>'+
+						'<input type="text" value="'+currentEditEvent.game+'" />'+
+					'</div>'+
+					'<div>'+
+						'<label>date:</label>'+
+						'<input type="text" value="'+currentEditEvent.date+'" />'+
+					'</div>'+
+					'<div>'+
+						'<label>hour:</label>'+
+						'<input type="text" value="'+currentEditEvent.hour+'" />'+
+					'</div>'+
+					'<input type="submit" value="Apply">'+
+				'</form>');
+			}
+		}
 	},
 	/* Init the functions */
 	init: function(){
