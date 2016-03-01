@@ -1,0 +1,37 @@
+[
+	{
+		"id": 1,
+		"name": "Sieg",
+		"rules":"all"
+	},
+	{
+		"id": 2,
+		"name": "Liath",
+		"rules":"all"
+	},
+	{
+		"id": 3,
+		"name": "Thorkh",
+		"rules":"all"
+	},
+	{
+		"id": 4,
+		"name": "Hemophilia",
+		"rules":"write"
+	},
+	{
+		"id": 5,
+		"name": "Stradamus",
+		"rules":"write"
+	},
+	{
+		"id": 5,
+		"name": "Luciole",
+		"rules":"read"
+	},
+	{
+		"id": 6,
+		"name": "Ebnul",
+		"rules":"read"
+	}
+]

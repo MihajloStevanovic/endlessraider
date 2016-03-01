@@ -1,0 +1,5 @@
+{
+	"name": "sieg",
+	"events": ["1,3,5"],
+	"rules": "write"
+}

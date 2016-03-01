@@ -1,0 +1,56 @@
+[
+	{
+		"id": 1,
+		"type": "raid",
+		"game":"BDO",
+		"name":"Instance BDO",
+		"date": "13/02/2016",
+		"hour": "21h00"
+	},
+	{
+		"id": 2,
+		"type": "IRL",
+		"name": "Japan Expo 2042",
+		"date": "13/02/2016",
+		"hour": "21h00"
+	},
+	{
+		"id": 3,
+		"type": "Endless",
+		"name":"Lancement Raider v3",
+		"date": "13/02/2016",
+		"hour": "21h00"
+	},
+	{
+		"id": 4,
+		"type": "raid",
+		"game":"Diablo",
+		"name":"Faille sup",
+		"date": "13/02/2016",
+		"hour": "21h00"
+	},
+	{
+		"id": 5,
+		"type": "raid",
+		"game":"Aion",
+		"name":"Temple du feu",
+		"date": "13/02/2016",
+		"hour": "21h00"
+	},
+	{
+		"id": 5,
+		"type": "raid",
+		"game":"ARK",
+		"name":"???",
+		"date": "13/02/2016",
+		"hour": "21h00"
+	},
+	{
+		"id": 6,
+		"type": "raid",
+		"game":"Minecraft",
+		"name":"On crame tout",
+		"date": "13/02/2016",
+		"hour": "21h00"
+	}
+]
