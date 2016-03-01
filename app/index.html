@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Endless Raider V3</title>
 	<link rel="stylesheet" href="styles/libs/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/libs/normalize.css">
 	<link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -11,14 +12,13 @@
 	<nav class="nav">
 		<ul>
 			<li><a href="#" class="active">Home</a></li>
-			<li><a href="#">Events</a></li>
-			<li><a href="#">Profile</a></li>
+			<li><a href="#" class="route-link" data-route="profile">Profile</a></li>
 			<li>
 				<a href="#">Administration</a>
-				<ul class="ss-menu">
-					<li><a href="#">Events</a></li>
-					<li><a href="#">Users</a></li>
-					<li><a href="#">Game</a></li>
+				<ul class="sub-menu">
+					<li><a href="#" data-route="events">Events</a></li>
+					<li><a href="#" data-route="players">Players</a></li>
+					<li><a href="#" data-route="games">Game</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -30,40 +30,15 @@
 				<li>Event</li>
 				<li>Edit</li>
 			</ul>
-			<div class="header-option">
+			<div class="header-options">
 				<a href="#">Sieg</a>
 				<a href="#">Log out</a>
 			</div>
 		</header>
-		<section class="content">
-			<header class='content-header'>
-				<h2>Event edit</h2>
-			</header>
-			<form>
-				<label class="label">Type</label>
-				<select class="input">
-					<option>Game raid</option>
-					<option>IRL</option>
-					<option>Endless</option>
-				</select>
-				<label class="label">Game</label>
-				<select class="input">
-					<option>BDO</option>
-					<option>Minecraft</option>
-					<option>Aion</option>
-					<option>Diablo 	 </option>
-				</select>
-				<label class="label">Select a date</label>
-				<input type="text" class="input input-small" value="13/03/2016">
-				<label class="label">Select Hour</label>
-				<input type="text" class="input input-small" value="21H00">
-				<textarea class="textarea"></textarea>
-				<div class="buttons">
-					<a href="#">Cancel</a>
-					<a href="#">Submit</a>
-				</div>
-			</form>
-		</section>
+
+		<!-- Content -->
+		<section class="content"></section>
+
 	</main>
 
 	<script src="scripts/libs/jquery.min.js"></script>
