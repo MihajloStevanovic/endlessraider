@@ -14,6 +14,7 @@ var endlessRaider = {
 		route: 'home'
 	},
 
+	/* Manage the events */
 	eventsListener: function(){
 		$('.menu-category').on('click',function(){
 			$('.sub-menu').slideUp();
@@ -64,8 +65,16 @@ var endlessRaider = {
 				var eventId = link.getAttribute('data-event-id');
 				this.eventEdit(eventId);
 			break;
+
+			/*
+			 * @TODO: create an event
+			 * @TODO: Create a game
+			 * @TODO: Create a player ?
+			 * @TODO: Subscribe to an event
+			 * @TODO: Unsubscribe to an event
 		}
 	},
+	/* Append the calendar template */
 	raiderCalender: function(){
 		$('.content').append('<div class="raiderCalendar"></div>');
 		$('.raiderCalendar').fullCalendar({
@@ -76,6 +85,7 @@ var endlessRaider = {
 		    events: endlessRaider.config.calendar
 		})
 	},
+	/* Get the calendar informations */
 	getCalendarDatas: function(){
 		var calendarDatas = $.getJSON( "datas/calendar.json", function(data) {
 		})
@@ -181,6 +191,7 @@ var endlessRaider = {
 			'</div>');
 		}
 	},
+	/* Append the player edition template */
 	playerEdit: function(playerId){
 		for(player in endlessRaider.config.players){
 			var currentEditPlayer = endlessRaider.config.players[player];
@@ -198,6 +209,7 @@ var endlessRaider = {
 			}
 		}
 	},
+	/* Append the game edition template */
 	gameEdit: function(gameId){
 		for(game in endlessRaider.config.games){
 			var currentEditGame = endlessRaider.config.games[game];
@@ -212,6 +224,7 @@ var endlessRaider = {
 			}
 		}
 	},
+	/* Append the event edition template */
 	eventEdit: function(eventId){
 		for(event in endlessRaider.config.events){
 			var currentEditEvent = endlessRaider.config.events[event];
