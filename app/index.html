@@ -3,19 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<title>Endless Raider V3</title>
-	<link rel="stylesheet" href="styles/libs/bootstrap.min.css">
-	<link rel="stylesheet" href="styles/libs/normalize.css">
 	<link rel="stylesheet" href="styles/main.css">
-
-	
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.print.css">
+	<link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css">
+	<link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.print.css">
 </head>
 <body>
 
 	<nav class="nav">
 		<ul>
-			<li><a href="#" class="active">Home</a></li>
+			<li><a href="#" class="route-link active" data-route="home">Home</a></li>
 			<li><a href="#" class="route-link" data-route="profile">Profile</a></li>
 			<li>
 				<a href="#" class="menu-category">Administration</a>
@@ -46,9 +42,8 @@
 	</main>
 
 	<script src="scripts/libs/jquery.min.js"></script>
-	<script src="scripts/libs/bootstrap.min.js"></script>
-	<script src="http://momentjs.com/downloads/moment.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+	<script src="scripts/libs/moment.min.js"></script>
+	<script src="scripts/libs/fullcalendar.min.js"></script>
 	<script src="scripts/app.js"></script>
 </body>
 </html>
