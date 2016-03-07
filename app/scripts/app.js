@@ -65,6 +65,9 @@ var endlessRaider = {
 				var eventId = link.getAttribute('data-event-id');
 				this.eventEdit(eventId);
 			break;
+			case 'event-add':
+				this.eventAdd();
+			break;
 
 			/*
 			 * @TODO: create an event
@@ -178,6 +181,7 @@ var endlessRaider = {
 					'<button class="route-link remove" data-route="event-remove" data-event-id="'+events[event].id+'">remove</button></div>'+
 			'</div>');
 		}
+		$('.content').append('<div class=""><button class="route-link add" data-route="event-add">create new</button></div>');
 	},
 	/* Append the games list template */
 	gamesRender: function(games){
@@ -185,8 +189,8 @@ var endlessRaider = {
 			$('.content').append('<div class="row list-item">'+
 				'<div class="float-left col-4">'+games[game].name+'</div>'+
 				'<div class="float-left col-4">'+
-					'<button class="route-link edit" data-route="game-edit" data-event-id="'+games[game].id+'">Edit</button>'+
-					'<button class="route-link remove" data-route="game-remove" data-event-id="'+games[game].id+'">remove</button></div>'+
+					'<button class="route-link edit" data-route="game-edit" data-game-id="'+games[game].id+'">Edit</button>'+
+					'<button class="route-link remove" data-route="game-remove" data-game-id="'+games[game].id+'">remove</button></div>'+
 			'</div>');
 		}
 	},
@@ -196,8 +200,8 @@ var endlessRaider = {
 			$('.content').append('<div class="row list-item">'+
 				'<div class="float-left col-4">'+players[player].name+'</div>'+
 				'<div class="float-left col-4">'+
-					'<button class="route-link edit" data-route="player-edit" data-event-id="'+players[player].id+'">Edit</button>'+
-					'<button class="route-link remove" data-route="player-remove" data-event-id="'+players[player].id+'">remove</button></div>'+
+					'<button class="route-link edit" data-route="player-edit" data-player-id="'+players[player].id+'">Edit</button>'+
+					'<button class="route-link remove" data-route="player-remove" data-player-id="'+players[player].id+'">remove</button></div>'+
 			'</div>');
 		}
 	},
@@ -264,6 +268,13 @@ var endlessRaider = {
 				'</form>');
 			}
 		}
+	},
+	/* Template for new event creation*/
+	eventAdd: function(){
+		var tpl = $.ajax('tpl/createEvent.html')
+		.done(function(data){
+			$('.content').append(data)
+		})
 	},
 	/* Init the functions */
 	init: function(){

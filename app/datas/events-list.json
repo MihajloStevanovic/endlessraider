@@ -38,7 +38,7 @@
 		"hour": "21h00"
 	},
 	{
-		"id": 5,
+		"id": 6,
 		"type": "raid",
 		"game":"ARK",
 		"name":"???",
@@ -46,7 +46,7 @@
 		"hour": "21h00"
 	},
 	{
-		"id": 6,
+		"id": 7,
 		"type": "raid",
 		"game":"Minecraft",
 		"name":"On crame tout",
