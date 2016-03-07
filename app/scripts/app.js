@@ -72,6 +72,7 @@ var endlessRaider = {
 			 * @TODO: Create a player ?
 			 * @TODO: Subscribe to an event
 			 * @TODO: Unsubscribe to an event
+			 */
 		}
 	},
 	/* Append the calendar template */
@@ -170,24 +171,33 @@ var endlessRaider = {
 	/* Append the events list template */
 	eventsRender: function(events){
 		for(event in events){
-			$('.content').append('<div>'+events[event].name+
-				'<button class="route-link" data-route="event-edit" data-event-id="'+events[event].id+'">Edit</button>'+
+			$('.content').append('<div class="row list-item">'+
+				'<div class="float-left col-4">'+events[event].name+'</div>'+
+				'<div class="float-left col-4">'+
+					'<button class="route-link edit" data-route="event-edit" data-event-id="'+events[event].id+'">Edit</button>'+
+					'<button class="route-link remove" data-route="event-remove" data-event-id="'+events[event].id+'">remove</button></div>'+
 			'</div>');
 		}
 	},
 	/* Append the games list template */
 	gamesRender: function(games){
 		for(game in games){
-			$('.content').append('<div>'+games[game].name+
-				'<button class="route-link" data-route="game-edit" data-game-id="'+games[game].id+'">Edit</button>'+
+			$('.content').append('<div class="row list-item">'+
+				'<div class="float-left col-4">'+games[game].name+'</div>'+
+				'<div class="float-left col-4">'+
+					'<button class="route-link edit" data-route="game-edit" data-event-id="'+games[game].id+'">Edit</button>'+
+					'<button class="route-link remove" data-route="game-remove" data-event-id="'+games[game].id+'">remove</button></div>'+
 			'</div>');
 		}
 	},
 	/* Append the players list template */
 	playersRender: function(players){
 		for(player in players){
-			$('.content').append('<div>'+players[player].name+
-				'<button class="route-link" data-route="player-edit" data-player-id="'+players[player].id+'">Edit</button>'+
+			$('.content').append('<div class="row list-item">'+
+				'<div class="float-left col-4">'+players[player].name+'</div>'+
+				'<div class="float-left col-4">'+
+					'<button class="route-link edit" data-route="player-edit" data-event-id="'+players[player].id+'">Edit</button>'+
+					'<button class="route-link remove" data-route="player-remove" data-event-id="'+players[player].id+'">remove</button></div>'+
 			'</div>');
 		}
 	},
@@ -244,11 +254,11 @@ var endlessRaider = {
 					'</div>'+
 					'<div>'+
 						'<label>date:</label>'+
-						'<input type="text" value="'+currentEditEvent.date+'" />'+
+						'<input type="date" value="'+currentEditEvent.date+'" />'+
 					'</div>'+
 					'<div>'+
 						'<label>hour:</label>'+
-						'<input type="text" value="'+currentEditEvent.hour+'" />'+
+						'<input type="time" value="'+currentEditEvent.hour+'" />'+
 					'</div>'+
 					'<input type="submit" value="Apply">'+
 				'</form>');

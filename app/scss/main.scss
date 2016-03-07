@@ -2,63 +2,23 @@
  Endless Raider V3 global styles
  ============================================*/
 
-/* Navigation */
-.nav {
-	position: fixed;
-	width: 250px;
-	height: 100%;
-	background: #8a3232;
-	padding: 30px 0 0 0;
-	ul {
-		padding: 0;
-	}
-	li {
-		list-style: none;
-		text-transform: uppercase;
-		line-height: 3;
-	}
-	a {
-		display: block;
-		color: #fff;
-		text-decoration: none;
-		padding: 0 0 0 20px;
-		&:hover,
-		&.active {
-			background: rgba(0,0,0,0.2);
-		}
-	}
-	.sub-menu {
-		display: none;
-		background: #A04242;
-		li {
-			line-height: 2;
-			text-transform: capitalize;
-			a {
-				padding: 0 0 0 30px;
-			}
-		}
-	}
-}
+@import 'reset';
+@import 'components/form';
+@import 'components/helpers';
+@import 'components/nav';
+@import 'components/header';
+/*@import 'calendar';
+@import 'profile';
+@import 'events';
+@import 'event';
+@import 'players';
+@import 'player';
+@import 'games';
+@import 'game'; */
 
 /* Main content */
 .main {
 	margin: 0 0 0 250px;
-}
-
-/* Header */
-.header {
-	height: 50px;
-	line-height: 50px;
-	box-shadow: 0 1px 1px 1px #ccc;
-	.breadcrum {
-		float: left;
-		li {
-			display: inline-block;
-		}
-	}
-	.header-options {
-		float: right;
-	}
 }
 
 /* Content */
@@ -75,18 +35,4 @@
 }
 .toggle-active {
 	display: block;
-}
-
-label {
-	display: block;
-	color: #8a3232;
-	font-weight: bold;
-}
-input[type="text"] {
-	width: 200px;
-	height: 50px;
-	line-height: 50px;
-	margin: 10px 0;
-	padding: 0 0 0 10px;
-	border: 1px solid #ccc;
 }
