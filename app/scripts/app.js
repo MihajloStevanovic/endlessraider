@@ -65,14 +65,25 @@ var endlessRaider = {
 				var eventId = link.getAttribute('data-event-id');
 				this.eventEdit(eventId);
 			break;
+			case 'player-add':
+				var tplUrl = 'tpl/createPlayer.html';
+				this.createTemplate(tplUrl);
+			break;
+			case 'game-add':
+				var tplUrl = 'tpl/createGame.html';
+				this.createTemplate(tplUrl);
+			break;
 			case 'event-add':
-				this.eventAdd();
+				var tplUrl = 'tpl/createEvent.html';
+				this.createTemplate(tplUrl);
+			break;
+			case 'event-remove':
+				var type = 'event';
+				this.modal();
+				this.eventRemove(type);
 			break;
 
 			/*
-			 * @TODO: create an event
-			 * @TODO: Create a game
-			 * @TODO: Create a player ?
 			 * @TODO: Subscribe to an event
 			 * @TODO: Unsubscribe to an event
 			 */
@@ -193,6 +204,7 @@ var endlessRaider = {
 					'<button class="route-link remove" data-route="game-remove" data-game-id="'+games[game].id+'">remove</button></div>'+
 			'</div>');
 		}
+		$('.content').append('<div class=""><button class="route-link add" data-route="game-add">create new</button></div>');
 	},
 	/* Append the players list template */
 	playersRender: function(players){
@@ -204,6 +216,7 @@ var endlessRaider = {
 					'<button class="route-link remove" data-route="player-remove" data-player-id="'+players[player].id+'">remove</button></div>'+
 			'</div>');
 		}
+		$('.content').append('<div class=""><button class="route-link add" data-route="player-add">create new</button></div>');
 	},
 	/* Append the player edition template */
 	playerEdit: function(playerId){
@@ -270,11 +283,18 @@ var endlessRaider = {
 		}
 	},
 	/* Template for new event creation*/
-	eventAdd: function(){
-		var tpl = $.ajax('tpl/createEvent.html')
+	createTemplate: function(type){
+		var url = type;
+		var tpl = $.ajax(url)
 		.done(function(data){
 			$('.content').append(data)
 		})
+	},
+	modal: function(){
+		$('.modal-overlay').fadeIn(200,function(){
+			
+		});
+		$('.modal-wrapper').addClass('open');
 	},
 	/* Init the functions */
 	init: function(){
