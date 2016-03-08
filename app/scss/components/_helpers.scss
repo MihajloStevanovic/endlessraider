@@ -1,0 +1,26 @@
+.float-left {
+	float: left;
+}
+.row {
+	display: table;
+	width: 100%;
+}
+.col-4 {
+	width: 25%; 
+}
+.col-8 {
+	width: 75%; 
+}
+
+.list-item {
+    font-family: 'Open Sans Condensed';
+    color: #666;
+	padding-left: 10px;
+    line-height: 4;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0 #fff;
+	&:nth-child(odd) {
+		background: #ddd;
+	}
+}

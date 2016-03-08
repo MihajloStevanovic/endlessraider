@@ -1,0 +1,49 @@
+/* Navigation */
+.nav {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background: #8a3232;
+  padding: 30px 0 0 0;
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style: none;
+    text-transform: uppercase;
+    line-height: 3;
+  }
+  a {
+    display: block;
+    font-family: 'Open Sans Condensed';
+    font-size: 1.3em;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 0 0 20px;
+    letter-spacing: 2px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    &:hover,
+    &.active {
+      background: rgba(0,0,0,0.2);
+    }
+    i.fa {
+      font-size: 0.7em;
+    }
+  }
+  .sub-menu {
+    display: none;
+    background: #A04242;
+    li {
+      line-height: 2;
+      text-transform: capitalize;
+      a {
+        font-size: 1.1em;
+        padding: 0 0 0 30px;
+      }
+    }
+  }
+}

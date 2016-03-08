@@ -11,18 +11,21 @@ var endlessRaider = {
 		events: {},
 		games: {},
 		players: {},
-		route: 'home'
+		route: 'home',
+		modal: null
 	},
 
 	/* Manage the events */
 	eventsListener: function(){
-		$('.menu-category').on('click',function(){
+		$('.menu-category').on('click',function(e){
+			e.preventDefault();
 			$('.sub-menu').slideUp();
 			$(this).next().slideDown();
 			$('.nav a').removeClass('active');
 			$(this).addClass('active');
 		});
-		$('body').on('click','.route-link',function(){
+		$('body').on('click','.route-link',function(e){
+			e.preventDefault();
 			route = this.getAttribute('data-route');
 			if(route !== endlessRaider.config.route){
 				endlessRaider.removeContent();
@@ -31,6 +34,12 @@ var endlessRaider = {
 				return false;
 			}
 			endlessRaider.raiderRouter(this);
+		});
+		$('body').on('click','.modal-link',function(e){
+			e.preventDefault();
+			modal = this.getAttribute('data-modal');
+				endlessRaider.config.modal = modal;
+			endlessRaider.modalRouter(this);
 		});
 	},
 	/* Manage the current route functions
@@ -77,16 +86,30 @@ var endlessRaider = {
 				var tplUrl = 'tpl/createEvent.html';
 				this.createTemplate(tplUrl);
 			break;
-			case 'event-remove':
-				var type = 'event';
-				this.modal();
-				this.eventRemove(type);
-			break;
 
 			/*
 			 * @TODO: Subscribe to an event
 			 * @TODO: Unsubscribe to an event
 			 */
+		}
+	},
+	modalRouter:function(modal){
+		switch(endlessRaider.config.modal) {
+			case 'event-remove':
+				var eventId = modal.getAttribute('data-event-id');
+				this.modal();
+				this.eventRemove(eventId);
+			break;
+			case 'game-remove':
+				var gameId = modal.getAttribute('data-game-id');
+				this.modal();
+				this.gameRemove(gameId);
+			break;
+			case 'player-remove':
+				var playerId = modal.getAttribute('data-player-id');
+				this.modal();
+				this.playerRemove(playerId);
+			break;
 		}
 	},
 	/* Append the calendar template */
@@ -185,11 +208,12 @@ var endlessRaider = {
 	/* Append the events list template */
 	eventsRender: function(events){
 		for(event in events){
-			$('.content').append('<div class="row list-item">'+
-				'<div class="float-left col-4">'+events[event].name+'</div>'+
+			$('.content').append(''+
+				'<div class="row list-item">'+
+				'<div class="float-left col-8">'+events[event].name+'</div>'+
 				'<div class="float-left col-4">'+
-					'<button class="route-link edit" data-route="event-edit" data-event-id="'+events[event].id+'">Edit</button>'+
-					'<button class="route-link remove" data-route="event-remove" data-event-id="'+events[event].id+'">remove</button></div>'+
+					'<button class="route-link edit" data-route="event-edit" data-event-id="'+events[event].id+'"><i class="fa fa-pencil-square-o"></i> Edit</button>'+
+					'<button class="modal-link remove" data-modal="event-remove" data-event-id="'+events[event].id+'"><i class="fa fa-times-circle"></i> remove</button></div>'+
 			'</div>');
 		}
 		$('.content').append('<div class=""><button class="route-link add" data-route="event-add">create new</button></div>');
@@ -198,10 +222,10 @@ var endlessRaider = {
 	gamesRender: function(games){
 		for(game in games){
 			$('.content').append('<div class="row list-item">'+
-				'<div class="float-left col-4">'+games[game].name+'</div>'+
+				'<div class="float-left col-8">'+games[game].name+'</div>'+
 				'<div class="float-left col-4">'+
-					'<button class="route-link edit" data-route="game-edit" data-game-id="'+games[game].id+'">Edit</button>'+
-					'<button class="route-link remove" data-route="game-remove" data-game-id="'+games[game].id+'">remove</button></div>'+
+					'<button class="route-link edit" data-route="game-edit" data-game-id="'+games[game].id+'"><i class="fa fa-pencil-square-o"></i> Edit</button>'+
+					'<button class="modal-link remove" data-modal="game-remove" data-game-id="'+games[game].id+'"><i class="fa fa-times-circle"></i> remove</button></div>'+
 			'</div>');
 		}
 		$('.content').append('<div class=""><button class="route-link add" data-route="game-add">create new</button></div>');
@@ -210,10 +234,10 @@ var endlessRaider = {
 	playersRender: function(players){
 		for(player in players){
 			$('.content').append('<div class="row list-item">'+
-				'<div class="float-left col-4">'+players[player].name+'</div>'+
+				'<div class="float-left col-8">'+players[player].name+'</div>'+
 				'<div class="float-left col-4">'+
-					'<button class="route-link edit" data-route="player-edit" data-player-id="'+players[player].id+'">Edit</button>'+
-					'<button class="route-link remove" data-route="player-remove" data-player-id="'+players[player].id+'">remove</button></div>'+
+					'<button class="route-link edit" data-route="player-edit" data-player-id="'+players[player].id+'"><i class="fa fa-pencil-square-o"></i> Edit</button>'+
+					'<button class="modal-link remove" data-modal="player-remove" data-player-id="'+players[player].id+'"><i class="fa fa-times-circle"></i> remove</button></div>'+
 			'</div>');
 		}
 		$('.content').append('<div class=""><button class="route-link add" data-route="player-add">create new</button></div>');
@@ -291,10 +315,54 @@ var endlessRaider = {
 		})
 	},
 	modal: function(){
-		$('.modal-overlay').fadeIn(200,function(){
-			
-		});
+		$('.modal-overlay').fadeIn(400);
 		$('.modal-wrapper').addClass('open');
+
+		$('body').on('click','.modal-closer',function(){
+			$('.modal-wrapper').removeClass('open');
+			$('.modal-overlay').fadeOut(400,function(){
+				$('.modal-content *').remove();
+			});
+		})
+	},
+	eventRemove: function(eventId){
+		for(event in endlessRaider.config.events){
+			var currentRemoveEvent = endlessRaider.config.events[event];
+			if(currentRemoveEvent.id == eventId){
+				$('.modal-content').append('<h2>Delete the game ?</h2>'+
+					'<h3>'+endlessRaider.config.events[event].name+'</h3>'+
+					'<div>'+
+						'<button>Confirm</button>'+
+						'<button class="modal-cancel modal-closer">Cancel</button>'+
+					'</div>');
+			}
+		}
+	},
+	gameRemove: function(gameId){
+		for(game in endlessRaider.config.games){
+			var currentRemoveGame = endlessRaider.config.games[game];
+			if(currentRemoveGame.id == gameId){
+				$('.modal-content').append('<h2>Delete this game ?</h2>'+
+					'<h3>'+endlessRaider.config.games[game].name+'</h3>'+
+					'<div>'+
+						'<button>Confirm</button>'+
+						'<button class="modal-cancel modal-closer">Cancel</button>'+
+					'</div>');
+			}
+		}
+	},
+	playerRemove: function(playeId){
+		for(player in endlessRaider.config.players){
+			var currentRemoveEvent = endlessRaider.config.players[player];
+			if(currentRemoveEvent.id == playeId){
+				$('.modal-content').append('<h2>Delete this player ?</h2>'+
+					'<h3>'+endlessRaider.config.players[player].name+'</h3>'+
+					'<div>'+
+						'<button>Confirm</button>'+
+						'<button class="modal-cancel modal-closer">Cancel</button>'+
+					'</div>');
+			}
+		}
 	},
 	/* Init the functions */
 	init: function(){

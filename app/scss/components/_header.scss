@@ -1,0 +1,44 @@
+/* Header */
+.header {
+  height: 50px;
+  line-height: 50px;
+  box-shadow: 0 1px 1px 1px #ccc;
+  padding: 0 0 0 20px;
+  .breadcrum {
+    float: left;
+    li {
+      display: inline-block;
+      font-family: 'Open Sans Condensed';
+      font-weight: 700;
+      margin: 0 5px 0 0;
+      &:after {
+        display: inline-block;
+        content: '/';
+        padding: 0 0 0 5px;
+        color: #8a3232;
+      }
+    }
+  }
+  .header-options {
+    float: right;
+    a {
+      font-family: 'Open Sans Condensed';
+      font-size: 1.1em;
+      color: #8a3232;
+      font-weight: 700;
+      margin: 0 5px;
+      padding: 5px 10px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        color: #fff;
+        background: #8a3232;
+      }
+    }
+  }
+}

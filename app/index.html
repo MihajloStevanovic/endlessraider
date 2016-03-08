@@ -9,15 +9,18 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 </head>
 <body>
 
 	<nav class="nav">
 		<ul>
-			<li><a href="#" class="route-link active" data-route="home">Home</a></li>
-			<li><a href="#" class="route-link" data-route="profile">Profile</a></li>
+			<li><a href="#" class="route-link active" data-route="home"><i class="fa fa-calendar"></i> Home</a></li>
+			<li><a href="#" class="route-link" data-route="profile"><i class="fa fa-user"></i> Profile</a></li>
 			<li>
-				<a href="#" class="menu-category">Administration</a>
+				<a href="#" class="menu-category"><i class="fa fa-cog"></i> Administration</a>
 				<ul class="sub-menu">
 					<li><a href="#" class="route-link" data-route="events">Events</a></li>
 					<li><a href="#" class="route-link" data-route="players">Players</a></li>
@@ -35,7 +38,7 @@
 			</ul>
 			<div class="header-options">
 				<a href="#">Sieg</a>
-				<a href="#">Log out</a>
+				<a href="#"><i class="fa fa-power-off"></i> Log out</a>
 			</div>
 		</header>
 
@@ -44,8 +47,11 @@
 
 	</main>
 
-	<div class="modal-overlay"></div>
-	<div class="modal-wrapper"></div>
+	<div class="modal-overlay modal-closer"></div>
+	<div class="modal-wrapper">
+		<button class="modal-cross modal-closer"><i class="fa fa-times"></i></button>
+		<div class="modal-content"></div>
+	</div>
 
 	<script src="scripts/libs/jquery.min.js"></script>
 	<script src="scripts/libs/moment.min.js"></script>
