@@ -37,3 +37,13 @@
 .toggle-active {
 	display: block;
 }
+
+.loader {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #8a3232;
+	z-index: 10;
+}

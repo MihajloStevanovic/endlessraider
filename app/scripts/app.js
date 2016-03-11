@@ -148,8 +148,26 @@ var endlessRaider = {
 			console.log( "Player error" );
 		})
 		playerInfos.complete(function() {
-			console.log(endlessRaider.config.player);
+			endlessRaider.navigationElements();
+			endlessRaider.loader();
 		});
+	},
+	loader: function(){
+		$('.loader').fadeOut(function(){
+			$(this).remove();
+		})
+	},
+	/* Manage the navigation rules */
+	navigationElements: function(){
+		if(endlessRaider.config.player.rules === "All"){
+			$('.sub-menu').append('<li><a href="#" class="route-link" data-route="events">Events</a></li>'+
+				'<li><a href="#" class="route-link" data-route="players">Players</a></li>'+
+				'<li><a href="#" class="route-link" data-route="games">Games</a></li>');
+		} else if(endlessRaider.config.player.rules === "Write"){
+			$('.sub-menu').append('<li><a href="#" class="route-link" data-route="events">Events</a></li>');
+		} else {
+			return false;
+		}
 	},
 	/* Get events list */
 	getEventsList: function(){
