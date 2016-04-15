@@ -1,0 +1,53 @@
+[
+	{
+		"connectJoueur" : "/endlessraider-backend/services/user/connectUser.php"
+	},
+	{
+		"disconnectJoueur" : "/endlessraider-backend/services/user/disconnectUser.php"
+	},
+	{
+		"getAllJoueurs" : "/endlessraider-backend/services/user/getAllUsers.php"
+	},
+	{
+		"getJoueur" : "/endlessraider-backend/services/user/getUser.php"
+	},
+	{
+		"getAllDroits" : "/endlessraider-backend/services/user/getAllRolesUser.php"
+	},
+	{
+		"updateDroitJoueur" : "/endlessraider-backend/services/user/updateRoleUser.php"
+	},
+	{
+		"deleteJeu" : "/endlessraider-backend/services/jeu/deleteJeu.php"
+	},
+	{
+		"getJeu" : "/endlessraider-backend/services/jeu/getJeu.php"
+	},
+	{
+		"getListJeux" : "/endlessraider-backend/services/jeu/getListJeux.php"
+	},
+	{
+		"saveJeu" : "/endlessraider-backend/services/jeu/saveJeu.php"
+	},
+	{
+		"deleteEvent" : "/endlessraider-backend/services/evenement/deleteEvent.php"
+	},
+	{
+		"desinscriptionEvent" : "/endlessraider-backend/services/evenement/desinscriptionEvent.php"
+	},
+	{
+		"getAllEvents" : "/endlessraider-backend/services/evenement/getAllEvents.php"
+	},
+	{
+		"getAllTypeEvt" : "/endlessraider-backend/services/evenement/getAllTypeEvt.php"
+	},
+	{
+		"getEvent" : "/endlessraider-backend/services/evenement/getEvent.php"
+	},
+	{
+		"inscriptionEvent" : "/endlessraider-backend/services/evenement/inscriptionEvent.php"
+	},
+	{
+		"saveEvent" : "/endlessraider-backend/services/evenement/saveEvent.php"
+	}
+]
