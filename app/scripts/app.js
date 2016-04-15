@@ -196,7 +196,7 @@ var endlessRaider = {
 	/* Get events list */
 	getEventsList: function(){
 		console.log(endlessRaider.config);
-		var eventsList = $.getJSON( endlessRaider.config.getAllEvents, function(data) {
+		var eventsList = $.ajax( endlessRaider.config.getAllEvents, function(data) {
 		})
 		.done(function(data) {
 			endlessRaider.config.events = data;
@@ -211,7 +211,7 @@ var endlessRaider = {
 	},
 	/* Get games list */
 	getGamesList: function(){
-		var gamesList = $.getJSON( endlessRaider.config.getListJeux, function(data) {
+		var gamesList = $.ajax( endlessRaider.config.getListJeux, function(data) {
 		})
 		.done(function(data) {
 			endlessRaider.config.games = data;
@@ -225,7 +225,7 @@ var endlessRaider = {
 	},
 	/* Get players list */
 	getPlayersList: function(){
-		var playersList = $.getJSON( endlessRaider.config.getAllJoueurs, function(data) {
+		var playersList = $.ajax( endlessRaider.config.getAllJoueurs, function(data) {
 		})
 		.done(function(data) {
 			endlessRaider.config.players = data;
