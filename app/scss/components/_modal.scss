@@ -37,7 +37,15 @@
 .modal-content {
 	text-align: center;
 	clear: both; 
+	padding-bottom: 30px;
 }
 .modal-content button {
 	margin: 0 20px;
+}
+
+// Events
+.event-players {
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
 }

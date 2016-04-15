@@ -1,0 +1,54 @@
+.fc-ltr .fc-basic-view .fc-day-number {
+	background: #f1f1f1 !important;
+	margin: 0 5px 0 0 !important;
+	padding: 0 !important;
+	border: 0 none;
+	border-right: solid 5px #fff !important;
+	padding: 5px 10px !important;
+    font-weight: bold;
+}
+.fc-event-container {
+}
+.fc-event {
+	border: 0 none !important;
+	background: none !important;
+	font-size: 14px;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+	color: #8a3232 !important;
+}
+.fc tbody .fc-row .fc-content-skeleton tbody tr:last-child td {
+	padding: 0;
+}
+thead {
+	border: 0 none !important;
+}
+th, td, hr, thead, tbody, .fc-row {
+	background: none !important;
+	border: 0 none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.fc-basic-view .fc-body .fc-row {
+}
+.fc-day-header {
+	line-height: 30px;
+}
+.fc-event-container,
+.fc-event,
+.fc-title {
+
+}
+.fc tbody .fc-row .fc-content-skeleton table {
+	border-bottom: solid 5px #fff !important;
+	height: 120px;
+}
+.fc-row .fc-content-skeleton tbody td {
+	background: #f1f1f1 !important;
+	border-right: solid 5px #fff !important;
+	vertical-align: middle;
+}
+.fc-view {
+	z-index:0;
+}

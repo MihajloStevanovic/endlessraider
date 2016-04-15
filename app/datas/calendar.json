@@ -1,10 +1,17 @@
 [
 	{
-		"title": "All Day Event",
-		"start": "2016-03-02"
+		"title": "Soirée reroll",
+		"start": "2016-04-02:30:00",
+		"players": ["thorkh","Sieg","Liath"]
 	},
 	{
-		"title": "All Day Event",
-		"start": "2016-03-12"
+		"title": "scéance de farm",
+		"start": "2016-04-12:30:00",
+		"players": ["thorkh","Sieg","Liath"]
+	},
+	{
+		"title": "Mission de guilde",
+		"start": "2016-04-12:30:00",
+		"players": ["thorkh","Sieg","Liath"]
 	}
 ]
