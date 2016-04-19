@@ -1,0 +1,20 @@
+{
+	"success": "true",
+	"user": {
+		"name": "Sieg",
+	  	"events": [
+	    	{
+		    	"type": "Raid",
+		    	"game": "BDO",
+		    	"date": "23/03/2016",
+		    	"hour": "21h00"
+	    	}
+		],
+		"characters": [
+	    	{
+	    	"name":"Anatolia"
+	    	}
+		],
+		"rules": "All"
+	}
+}
